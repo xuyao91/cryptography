@@ -29,7 +29,7 @@ class Caesar
       cipher.split('').each do |m|
         message << PLAIN_ALPHABET[(CIPHER_ALPHABET.index(m) - key)%26]	
       end	
-      puts "#{cipher} -> 第#{key+1}次破解 -> #{message.join}"	
+      puts "#{cipher} -> 第#{key}次破解 -> #{message.join}"	
     end	
   end	
 
