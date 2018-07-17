@@ -1,11 +1,11 @@
 # 密码学(一)之恺撒密码(移位密码)
-###（一）代换密码（替换密码）**
+### （一）代换密码（替换密码）
 
 上一讲中，我们讲移位密码其实是将字母表中的字母一一对应到各数字，然后通过数字平移来进行加密，古典密码学中还有一种比较有名的加密方法，就是将明文中的字母表对应到一套密文的字母表，这种加密方法我们叫**代换密码（substiution cipher）**或叫**替换密码**，下图就是一个简单的代换密码对应表
 
 ![image](http://upload-images.jianshu.io/upload_images/1796624-db5bd0e79f37103e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###（二）代换密码的加密
+### （二）代换密码的加密
 
 上面所说，代换密码其实就是将明文里的字母按照字母表替换成密文里的字母，还是举一个例子，假设现在有一个字符“welcome to china”，根据上面的密码替换表，将明文里面的每个字母依次换成对应的密文，如下：
 
@@ -28,13 +28,13 @@ a->W
 
 这样就可以得到密文CXGHBEXQBHTJNW
 
-###（三）代换密码的解密
+### （三）代换密码的解密
 
 代换密码的解密非常简单，只要将加密的替换表进行反向操作，这里不再操作
 
 这里可以发现，代换密码主要是要建立起一套明文与密文之间的加密对应的替换关系，只要有这套密码替换表，加、解密就变得很容易
 
-###（四）代换密码的破解
+### （四）代换密码的破解
 
 上一讲我们知道，移位密码其实是很好破解的，因为密钥总量一共就26位，只要我们试26次，就一定能试出一个正解的，那么代换密码是也可以通过穷举的方式来破解呢？
 
@@ -122,7 +122,7 @@ XZWGCHSMRNMDHNCMFQCHZJMXJZWIFJYUCFWDJNZDIR
 ```
 Our friend from paris examined his empty glass with surprise, as ifevaporation has taken place while he wasn’t looking, I poured some more wine and hesettled back in his chair,face tilted up towards the sun.
 ```
-###参考资料
+### 参考资料
 
 【密码学原理与实践（第三版）】
 
