@@ -1,9 +1,9 @@
-###前言
+### 前言
    密码学的基本目的是使得两个在不安全的信道上进行安全的通信，在计算机网络中，现假设有两个人Alice和Bob，Alice想发送消息给Bob，告诉他明天凌晨2点毒贩将在4号码头进行交易，请Bob配合缉毒。这里Alice有一个麻烦就是他怕在信息传输中可能会被敌人Oscar监听，甚至篡改消息内容，导致整个计划失败，Bob也对Alice发过来的消息有疑虑，不知道消息是否为Alice本人所发，消息内容是否真实等等。  
 
  这里密码学的重要性就体现出来了，假设Alice事先和Bob商量好一个密钥（key）,Alice通过密钥将明文（plaintext）加密成密文，在网络中传输，Bob收到Alice传过来的密文（ciphertext），用事先商量好的密钥进行解密，得到明文，而敌人即使监听到Alice发送的消息，也是加密过的密文，由于不知道密钥，所以无法知道真实的明文，整个过程如下。
 ![image.png](https://upload-images.jianshu.io/upload_images/1796624-95050e2fc8412a32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####移位密码（Shift Cipher）、恺撒密码(Caesar Cipher)
+### 移位密码（Shift Cipher）、恺撒密码(Caesar Cipher)
 移位密码是古典密码学中最早，最简单的一种加、解密码方法，最早可追溯至古罗马时代，尤利乌斯:恺撒曾经使用过此密码。 
   
 移位密码是通过将明文中所使用的字母按照一定的字数进行“平移”来加密，为了简化内容，在这里我们只使用英文字母作为示例，我们用小写字母(a,b,c,d…)来表示明文，用大写字母（A,B,C,D…）来表示密文。
@@ -11,7 +11,7 @@
 最早期时，一般将字母平移3位，也就是a->D，b->E，c->F,
 这种最早时平移3位是叫**恺撒密码(Caesar Cipher)**，后来经过推广，平移位数也不一定是3位，可以是其它任何整数位，这种又叫**移位密码（Shift Cipher）**，可以知道，恺撒密码是移位密码的一个特例（key=3时），下面是恺撒密码平移的工作方式  
 ![image.png](https://upload-images.jianshu.io/upload_images/1796624-e1fa042fd62a2c56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
-####移位密码的加密
+### 移位密码的加密
  使用移位密码可以用来加密普通的英文句子，但是我们要建立英文字母和模26剩余之间一一对应关系，如A->0，B->1,…Z->25。其列表如下：  
 ![image.png](https://upload-images.jianshu.io/upload_images/1796624-0dbef7eedef6d7dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
 现假设我们有明文P=china，密钥K=3, 现要将其加密，根据上表，将字符P中的每个字母平移3位，得到如下情况:  
@@ -36,7 +36,7 @@ d，最后将各数字转化为字母即可得密文
 ```
 具体代码可参考这里
 [https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L10](https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L10)
-####移位密码的解密
+### 移位密码的解密
 
 移位密码的解密也非常简单，只要使用加密时用的密钥进行反向平移操作，刚来的例子只要将密文反向平移3位就行，可得到如下：
 ```ruby
@@ -60,7 +60,7 @@ d， 最后将数字转化成字母得
 具体代码可参考这里：
 [https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L18](https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L18)
 
-####移位密码的暴力破解
+### 移位密码的暴力破解
 
 通过上面的例子可以知道，我们只要拿到的密钥K，就可以密文解密，那么有没有不用密钥就可以解密的呢，在移位密码中，密钥就是字母平移的位数，因为因为字母表里只有26个字母（0-25），所以加密的密钥一共就是0-25之间的26个数字，我们可以把26个数字全部当作密钥试一次，解密出来其中有一个明文肯定是对的。  
 
@@ -99,7 +99,7 @@ FKLQD -> 第25次破解 -> glmre
 代码可以参考这里
 [https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L26](https://github.com/xuyao91/cryptography/blob/master/caesar/caesar.rb#L26)
 
-####脚本示例
+### 脚本示例
 
 我们用脚本试一下上面所说的各种方法，脚本代码在这里
 
@@ -147,7 +147,7 @@ OGSVKZKXDAORUBKINOTG -> 第25次破解 -> phtwlalyebpsvcljopuh
 
 可以知道，移位密码其实是很弱的，我们可以很容易将他破解出来，但是在古代那会还是挺有用的。
 
-####参考资料
+### 参考资料
 
 【密码学原理与实践（第三版）】
 
